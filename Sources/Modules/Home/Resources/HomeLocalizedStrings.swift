@@ -10,6 +10,9 @@ import Foundation
 
 enum HomeLocalizedString {
     static let title = HomeLocalizedString.string("title")
+    static let noItems = HomeLocalizedString.string("no-items")
+    static let fetchDataError = HomeLocalizedString.string("fetch-data-error")
+    static let loading = HomeLocalizedString.string("loading")
 }
 
 private extension HomeLocalizedString {

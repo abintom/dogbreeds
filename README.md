@@ -21,7 +21,7 @@ An iOS application to display various breeds of dogs from the [DogAPI](https://a
 
 ### Architecture
 
-- [MVVM](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) (Model-View-ViewModel)
+- [MVVM](https://en.wikipedia.org/wiki/Model–view–viewmodel) (Model-View-ViewModel)
 
 
 ### Scope for Improvement

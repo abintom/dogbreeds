@@ -20,6 +20,7 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         setupViews()
+        viewModel.loadData()
     }
 
     // MARK: - Private methods
