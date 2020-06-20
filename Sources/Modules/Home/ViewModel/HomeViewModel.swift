@@ -19,8 +19,14 @@ final class HomeViewModel {
 
     let title = HomeLocalizedString.title
 
+    var stateChangeObserver: ((State) -> Void)?
+
     private let apiClient: HomeAPIClient
-    private(set) var state: State = .loading
+    private(set) var state: State = .loading {
+        didSet {
+            stateChangeObserver?(state)
+        }
+    }
 
     init(_ apiClient: HomeAPIClient = .init()) {
         self.apiClient = apiClient
@@ -29,6 +35,7 @@ final class HomeViewModel {
     // MARK: - Internal methods
 
     func loadData() {
+        state = .loading
         apiClient.fetchDogBreeds { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -43,5 +50,19 @@ final class HomeViewModel {
                 self.state = .info(message: HomeLocalizedString.fetchDataError)
             }
         }
+    }
+
+    func numberOfRows(in section: Int = 0) -> Int {
+        switch state {
+        case .loading, .info:
+            return 1
+        case let .success(dogBreeds):
+            return dogBreeds.count
+        }
+    }
+
+    func cellModel(for indexPath: IndexPath) -> HomeCellViewModel? {
+        guard case let .success(dogBreeds) = state else { return nil }
+        return HomeCellViewModel(dogBreed: dogBreeds[indexPath.row])
     }
 }

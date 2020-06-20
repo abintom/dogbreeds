@@ -33,6 +33,12 @@
 		A8E39935249DEDB0001F8914 /* fetch-dog-breeds-empty.json in Resources */ = {isa = PBXBuildFile; fileRef = A8E39934249DEDAF001F8914 /* fetch-dog-breeds-empty.json */; };
 		A8E39937249E0DF3001F8914 /* HomeRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E39936249E0DF3001F8914 /* HomeRouterTests.swift */; };
 		A8E39939249E0F1A001F8914 /* HomeDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E39938249E0F1A001F8914 /* HomeDataManagerTests.swift */; };
+		A8E3993C249E1B2F001F8914 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E3993B249E1B2F001F8914 /* LoadingCell.swift */; };
+		A8E3993E249E2BA2001F8914 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E3993D249E2BA2001F8914 /* InfoCell.swift */; };
+		A8E39940249E2C94001F8914 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E3993F249E2C94001F8914 /* HomeCell.swift */; };
+		A8E39942249E2CB8001F8914 /* HomeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E39941249E2CB8001F8914 /* HomeCellViewModel.swift */; };
+		A8E39944249EB762001F8914 /* HomeCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E39943249EB762001F8914 /* HomeCellViewModelTests.swift */; };
+		A8E39946249EBC66001F8914 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E39945249EBC66001F8914 /* UITableView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +82,12 @@
 		A8E39934249DEDAF001F8914 /* fetch-dog-breeds-empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "fetch-dog-breeds-empty.json"; sourceTree = "<group>"; };
 		A8E39936249E0DF3001F8914 /* HomeRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouterTests.swift; sourceTree = "<group>"; };
 		A8E39938249E0F1A001F8914 /* HomeDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataManagerTests.swift; sourceTree = "<group>"; };
+		A8E3993B249E1B2F001F8914 /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
+		A8E3993D249E2BA2001F8914 /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
+		A8E3993F249E2C94001F8914 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
+		A8E39941249E2CB8001F8914 /* HomeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellViewModel.swift; sourceTree = "<group>"; };
+		A8E39943249EB762001F8914 /* HomeCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellViewModelTests.swift; sourceTree = "<group>"; };
+		A8E39945249EBC66001F8914 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +178,7 @@
 		A807F424249D6948006B9158 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A8E3993A249E1AF1001F8914 /* Cells */,
 				A807F425249D6959006B9158 /* Home.storyboard */,
 				A807F42C249D6A0F006B9158 /* HomeViewController.swift */,
 			);
@@ -187,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				A8E39902249D6BC3001F8914 /* HomeViewModel.swift */,
+				A8E39941249E2CB8001F8914 /* HomeCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -204,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				A8E39906249D6D20001F8914 /* String+Localizable.swift */,
+				A8E39945249EBC66001F8914 /* UITableView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -228,9 +243,10 @@
 		A8E39910249D7B2D001F8914 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				A8E39911249D7B96001F8914 /* HomeViewModelTests.swift */,
-				A8E39936249E0DF3001F8914 /* HomeRouterTests.swift */,
+				A8E39943249EB762001F8914 /* HomeCellViewModelTests.swift */,
 				A8E39938249E0F1A001F8914 /* HomeDataManagerTests.swift */,
+				A8E39936249E0DF3001F8914 /* HomeRouterTests.swift */,
+				A8E39911249D7B96001F8914 /* HomeViewModelTests.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -290,6 +306,16 @@
 				A8E39932249DE978001F8914 /* fetch-dog-breeds.json */,
 			);
 			path = Stub;
+			sourceTree = "<group>";
+		};
+		A8E3993A249E1AF1001F8914 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A8E3993F249E2C94001F8914 /* HomeCell.swift */,
+				A8E3993D249E2BA2001F8914 /* InfoCell.swift */,
+				A8E3993B249E1B2F001F8914 /* LoadingCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -401,14 +427,19 @@
 				A8E39920249D95EC001F8914 /* DogBreedResponse.swift in Sources */,
 				A8E39924249DBCB1001F8914 /* HomeRouter.swift in Sources */,
 				A8E39922249DBA80001F8914 /* DogBreedGroupResponse.swift in Sources */,
+				A8E39942249E2CB8001F8914 /* HomeCellViewModel.swift in Sources */,
 				A807F420249D6904006B9158 /* AppDelegate.swift in Sources */,
 				A8E39915249D90EF001F8914 /* APIRouter.swift in Sources */,
+				A8E3993E249E2BA2001F8914 /* InfoCell.swift in Sources */,
 				A8E39903249D6BC3001F8914 /* HomeViewModel.swift in Sources */,
 				A8E3991A249D918E001F8914 /* APIClient.swift in Sources */,
 				A8E39928249DC594001F8914 /* HomeDataManager.swift in Sources */,
 				A8E3991D249D95BF001F8914 /* HomeAPIClient.swift in Sources */,
+				A8E3993C249E1B2F001F8914 /* LoadingCell.swift in Sources */,
 				A8E3990C249D6D91001F8914 /* HomeLocalizedStrings.swift in Sources */,
 				A807F42D249D6A0F006B9158 /* HomeViewController.swift in Sources */,
+				A8E39940249E2C94001F8914 /* HomeCell.swift in Sources */,
+				A8E39946249EBC66001F8914 /* UITableView+Extensions.swift in Sources */,
 				A8E39907249D6D20001F8914 /* String+Localizable.swift in Sources */,
 				A8E39918249D9126001F8914 /* API.swift in Sources */,
 				A8E39926249DC199001F8914 /* DogBreed.swift in Sources */,
@@ -420,6 +451,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8E39939249E0F1A001F8914 /* HomeDataManagerTests.swift in Sources */,
+				A8E39944249EB762001F8914 /* HomeCellViewModelTests.swift in Sources */,
 				A8E39912249D7B96001F8914 /* HomeViewModelTests.swift in Sources */,
 				A8E39937249E0DF3001F8914 /* HomeRouterTests.swift in Sources */,
 				A8E39930249DE406001F8914 /* Stub.swift in Sources */,

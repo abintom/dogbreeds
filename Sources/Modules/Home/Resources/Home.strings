@@ -10,3 +10,4 @@
 "no-items" = "No results";
 "fetch-data-error" = "Fetching dog breeds failed. Please try again later.";
 "loading" = "Loading";
+"lifespan-prefix" = "Lifespan:";

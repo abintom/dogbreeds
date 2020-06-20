@@ -13,6 +13,7 @@ enum HomeLocalizedString {
     static let noItems = HomeLocalizedString.string("no-items")
     static let fetchDataError = HomeLocalizedString.string("fetch-data-error")
     static let loading = HomeLocalizedString.string("loading")
+    static let lifespanPrefix = HomeLocalizedString.string("lifespan-prefix")
 }
 
 private extension HomeLocalizedString {
