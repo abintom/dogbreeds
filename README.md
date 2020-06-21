@@ -14,8 +14,8 @@ An iOS application to display various breeds of dogs from the [DogAPI](https://a
 
 ### Development
 
-1. Clone the repo from the `github` using ssh or https. If you are using ssh make sure that you have added your ssh key to github.
-- git clone git@github.com:abintom/dogbreeds.git
+1. Clone the repo from the [github](https://github.com/abintom/dogbreeds) using ssh or https. If you are using ssh make sure that you have added your ssh key to github.
+- `git clone git@github.com:abintom/dogbreeds.git`
 2. Open `DogBreeds.xcodeproj` using `Xcode` application.
 
 
@@ -30,12 +30,17 @@ An iOS application to display various breeds of dogs from the [DogAPI](https://a
 
 ### Scope for Improvement
 
-- Use [SwiftGen](https://github.com/SwiftGen/SwiftGen) to avoid boilerplate code for resouce management like localization and to make it type-safe.
+- Use [SwiftGen](https://github.com/SwiftGen/SwiftGen) to avoid boilerplate code for resouce management like localization and to make it type-safe
+- Use [SwiftLint](https://github.com/realm/SwiftLint) and [SwiftFormat](https://github.com/nicklockwood/SwiftFormat) for linting and formatting
+- Implement pull to refresh to reload data
+- Show alerts during errors or failures
+- Add placeholder image for failed or loading images.
 
 
 ### Assumptions
 
 As there isn't any backend specs, the below assumptions are considered when developing the app.
 
-- Dog breed type fetched from the backend would be always unique (even the name is same). There is no filtering done in the backend to remove duplicates.
-- Life span is always of the regex pattern `(\d+)[\s-–\s\d]*year`
+- Dog breed type fetched from the backend would be always unique (even the name is same). There is no filtering done in the backend to remove duplicates
+- Life span is always of the regex pattern `\d+\s*(\p{Pd}\s*\d+)?\s*years?` and the data which don't follow this pattern is ignored.
+- The list is sorted by taking an average lifespan for the range.

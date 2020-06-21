@@ -20,8 +20,11 @@ struct HomeDataManager {
         }
     }
 
+    // MARK: - Internal methods
+    
+    // Returns average lifespan from the range.
     func lifespan(from text: String) -> Double? {
-        let lifespanPattern = #"(\d+)[\s-–\s\d]*year"#
+        let lifespanPattern = #"\d+\s*(\p{Pd}\s*\d+)?\s*years?"#
         guard let string = matches(for: lifespanPattern, in: text).first else {
             return nil
         }
@@ -32,9 +35,9 @@ struct HomeDataManager {
         return years.reduce(0.0, +)/Double(years.count)
     }
 
-    // Returns sorted `DogBreed` model based on lifespan
+    // Returns sorted `DogBreed` model based on lifespan.
     func parseDogBreedResponse(_ response: [DogBreedGroupResponse]) -> [DogBreed] {
-        sort(
+        sortedByLifespan(
             response.flatMap { group in
                 group.breeds.compactMap { breed in
                     self.lifespan(from: breed.lifeSpan).map {
@@ -48,7 +51,7 @@ struct HomeDataManager {
         )
     }
 
-    func sort(_ dogBreeds: [DogBreed], isAsending: Bool = true) -> [DogBreed] {
+    func sortedByLifespan(_ dogBreeds: [DogBreed], isAsending: Bool = true) -> [DogBreed] {
         dogBreeds.sorted {
             isAsending
                 ? $0.averageLifespan < $1.averageLifespan

@@ -84,7 +84,7 @@ final class HomeViewModel {
         }
 
         let isAscending = selectedSegment == 0
-        let sortedItems = HomeDataManager().sort(dogBreeds, isAsending: isAscending)
+        let sortedItems = HomeDataManager().sortedByLifespan(dogBreeds, isAsending: isAscending)
         state = .success(items: sortedItems)
     }
 }

@@ -40,7 +40,9 @@ final class HomeDataManagerTests: XCTestCase {
         XCTAssertNil(dataManager.lifespan(from: "12 - 14"))
         XCTAssertEqual(dataManager.lifespan(from: "12 - 14 years 22 - 30 years"), 13)
         XCTAssertEqual(dataManager.lifespan(from: "13– 17 years 22 - 24 years"), 15)
-        XCTAssertEqual(dataManager.lifespan(from: "13 17 years 22 - 24 years"), 15)
+        XCTAssertEqual(dataManager.lifespan(from: "17 years 22 - 24 years"), 17)
+        XCTAssertEqual(dataManager.lifespan(from: "13years"), 13)
+        XCTAssertEqual(dataManager.lifespan(from: "1year"), 1)
     }
 
     func testSorting() {
@@ -50,7 +52,7 @@ final class HomeDataManagerTests: XCTestCase {
             DogBreed(name: "Breed 2", imageURL: "https://www.example.com", lifespan: "7 - 8 years", averageLifespan: 7.5),
             DogBreed(name: "Breed 3", imageURL: "https://www.example.com", lifespan: "14 - 18 years", averageLifespan: 16)
         ]
-        XCTAssertEqual(dataManager.sort(dogBreeds).first?.name, "Breed 2")
-        XCTAssertEqual(dataManager.sort(dogBreeds, isAsending: false).first?.name, "Breed 3")
+        XCTAssertEqual(dataManager.sortedByLifespan(dogBreeds).first?.name, "Breed 2")
+        XCTAssertEqual(dataManager.sortedByLifespan(dogBreeds, isAsending: false).first?.name, "Breed 3")
     }
 }
