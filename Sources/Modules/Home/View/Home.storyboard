@@ -135,6 +135,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </stackView>
                                                     </subviews>
                                                     <constraints>
@@ -152,28 +153,47 @@
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InfoCell" id="YMn-uW-6g9" customClass="InfoCell" customModule="DogBreeds" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="585" width="414" height="148.5"/>
+                                                <rect key="frame" x="0.0" y="585" width="414" height="199.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YMn-uW-6g9" id="7dQ-Ch-nfR">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="148.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="199.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Info Message]" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRn-fd-5ox">
-                                                            <rect key="frame" x="32" y="64" width="350" height="20.5"/>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="ut7-Eo-TXU">
+                                                            <rect key="frame" x="32" y="64" width="350" height="71.5"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="giA-oe-WjC">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="350" height="44"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="44" id="nPQ-cz-MNO"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                    <state key="normal" title="Reload">
+                                                                        <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="primaryButtonClicked:" destination="YMn-uW-6g9" eventType="touchUpInside" id="eri-Tl-cEk"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Info Message]" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRn-fd-5ox">
+                                                                    <rect key="frame" x="0.0" y="44" width="350" height="27.5"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="HRn-fd-5ox" firstAttribute="leading" secondItem="7dQ-Ch-nfR" secondAttribute="leading" constant="32" id="9gX-Jh-lHN"/>
-                                                        <constraint firstAttribute="bottom" secondItem="HRn-fd-5ox" secondAttribute="bottom" constant="64" id="dXX-mU-vGM"/>
-                                                        <constraint firstItem="HRn-fd-5ox" firstAttribute="top" secondItem="7dQ-Ch-nfR" secondAttribute="top" constant="64" id="xKr-Dh-Q1S"/>
-                                                        <constraint firstAttribute="trailing" secondItem="HRn-fd-5ox" secondAttribute="trailing" constant="32" id="zKu-TJ-Nmp"/>
+                                                        <constraint firstItem="ut7-Eo-TXU" firstAttribute="leading" secondItem="7dQ-Ch-nfR" secondAttribute="leading" constant="32" id="3EL-oK-0jp"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ut7-Eo-TXU" secondAttribute="bottom" constant="64" id="5vF-f4-UdL"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ut7-Eo-TXU" secondAttribute="trailing" constant="32" id="MLb-rH-nXV"/>
+                                                        <constraint firstItem="ut7-Eo-TXU" firstAttribute="top" secondItem="7dQ-Ch-nfR" secondAttribute="top" constant="64" id="zUG-EG-cKq"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <outlet property="infoLabel" destination="HRn-fd-5ox" id="rNv-kR-jfb"/>
+                                                    <outlet property="primaryButton" destination="giA-oe-WjC" id="fXZ-i8-mcy"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>

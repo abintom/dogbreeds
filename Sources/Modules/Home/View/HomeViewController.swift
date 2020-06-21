@@ -73,7 +73,9 @@ extension HomeViewController: UITableViewDataSource {
             return cell
         case let .info(message):
             let cell = tableView.dequeue(InfoCell.self, for: indexPath)
-            cell.configure(message)
+            cell.configure(message) { [weak self] in
+                self?.viewModel.loadData()
+            }
             return cell
         case .success:
             let cell = tableView.dequeue(HomeCell.self, for: indexPath)
