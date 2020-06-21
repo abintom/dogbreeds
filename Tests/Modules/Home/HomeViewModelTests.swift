@@ -70,7 +70,7 @@ final class HomeViewModelTests: XCTestCase {
         let apiClient = MockAPIClient(mockPath: Stub.fetchDogBreeds.path)
         let viewModel = HomeViewModel(HomeAPIClient(apiClient: apiClient))
         viewModel.loadData()
-        XCTAssertEqual(viewModel.cellModel(for: IndexPath(row: 0, section: 0))?.imageURL, "https://cdn2.thedogapi.com/images/SkFt1gc47_1280.jpg")
+        XCTAssertEqual(viewModel.cellModel(for: IndexPath(row: 0, section: 0))?.imageURL?.absoluteString, "https://cdn2.thedogapi.com/images/SkFt1gc47_1280.jpg")
     }
 
     func testCellViewModelForFailureState() {

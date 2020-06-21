@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -39,6 +39,8 @@
 		A8E39942249E2CB8001F8914 /* HomeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E39941249E2CB8001F8914 /* HomeCellViewModel.swift */; };
 		A8E39944249EB762001F8914 /* HomeCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E39943249EB762001F8914 /* HomeCellViewModelTests.swift */; };
 		A8E39946249EBC66001F8914 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E39945249EBC66001F8914 /* UITableView+Extensions.swift */; };
+		A8E39949249EBF9A001F8914 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = A8E39948249EBF9A001F8914 /* Nuke */; };
+		A8E3994C249ED4E8001F8914 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E3994A249EC358001F8914 /* ImageDownloader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +90,7 @@
 		A8E39941249E2CB8001F8914 /* HomeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellViewModel.swift; sourceTree = "<group>"; };
 		A8E39943249EB762001F8914 /* HomeCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellViewModelTests.swift; sourceTree = "<group>"; };
 		A8E39945249EBC66001F8914 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
+		A8E3994A249EC358001F8914 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8E39949249EBF9A001F8914 /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +261,7 @@
 				A8E39917249D9126001F8914 /* API.swift */,
 				A8E39914249D90EF001F8914 /* APIRouter.swift */,
 				A8E39919249D918E001F8914 /* APIClient.swift */,
+				A8E3994A249EC358001F8914 /* ImageDownloader.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -334,6 +339,9 @@
 			dependencies = (
 			);
 			name = DogBreeds;
+			packageProductDependencies = (
+				A8E39948249EBF9A001F8914 /* Nuke */,
+			);
 			productName = DogBreeds;
 			productReference = A807F3F2249D6893006B9158 /* DogBreeds.app */;
 			productType = "com.apple.product-type.application";
@@ -385,6 +393,9 @@
 				Base,
 			);
 			mainGroup = A807F3E9249D6893006B9158;
+			packageReferences = (
+				A8E39947249EBF9A001F8914 /* XCRemoteSwiftPackageReference "Nuke" */,
+			);
 			productRefGroup = A807F3F3249D6893006B9158 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -430,6 +441,7 @@
 				A8E39942249E2CB8001F8914 /* HomeCellViewModel.swift in Sources */,
 				A807F420249D6904006B9158 /* AppDelegate.swift in Sources */,
 				A8E39915249D90EF001F8914 /* APIRouter.swift in Sources */,
+				A8E3994C249ED4E8001F8914 /* ImageDownloader.swift in Sources */,
 				A8E3993E249E2BA2001F8914 /* InfoCell.swift in Sources */,
 				A8E39903249D6BC3001F8914 /* HomeViewModel.swift in Sources */,
 				A8E3991A249D918E001F8914 /* APIClient.swift in Sources */,
@@ -700,6 +712,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A8E39947249EBF9A001F8914 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A8E39948249EBF9A001F8914 /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A8E39947249EBF9A001F8914 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A807F3EA249D6893006B9158 /* Project object */;
 }

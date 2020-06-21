@@ -17,7 +17,7 @@ final class HomeCellViewModelTests: XCTestCase {
                                 lifeSpan: "8 – 15 years")
         let cellModel = HomeCellViewModel(dogBreed: dogBreed)
         XCTAssertEqual(cellModel.name, "American Bully")
-        XCTAssertEqual(cellModel.imageURL, "https://www.example.com")
+        XCTAssertEqual(cellModel.imageURL?.absoluteString, "https://www.example.com")
         XCTAssertEqual(cellModel.lifespan, "Lifespan: 8 – 15 years")
     }
 

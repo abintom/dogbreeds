@@ -6,6 +6,7 @@
 //  Copyright © 2020 Tensorloop. All rights reserved.
 //
 
+import Nuke
 import UIKit
 
 final class HomeCell: UITableViewCell {
@@ -16,6 +17,10 @@ final class HomeCell: UITableViewCell {
     @IBOutlet private var photoContainerView: UIView!
     @IBOutlet private var nameLabel: UILabel!
     @IBOutlet private var lifespanLabel: UILabel!
+
+    // MARK: - Properties
+
+    private var viewModel: HomeCellViewModel?
 
     // MARK: - Life cycle
 
@@ -39,7 +44,13 @@ final class HomeCell: UITableViewCell {
     // MARK: - Internal methods
 
     func configure(_ viewModel: HomeCellViewModel?) {
+        self.viewModel = viewModel
         nameLabel.text = viewModel?.name
         lifespanLabel.text = viewModel?.lifespan
+        photoImageView.image = nil
+        viewModel?.loadImage { [weak self] image in
+            guard let self = self else { return }
+            self.photoImageView.image = image
+        }
     }
 }

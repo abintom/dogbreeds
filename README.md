@@ -23,6 +23,10 @@ An iOS application to display various breeds of dogs from the [DogAPI](https://a
 
 - [MVVM](https://en.wikipedia.org/wiki/Model–view–viewmodel) (Model-View-ViewModel)
 
+### External libraries
+
+- [Nuke](https://github.com/kean/Nuke) for Image download and caching.
+
 
 ### Scope for Improvement
 
