@@ -18,7 +18,7 @@ final class HomeDataManagerTests: XCTestCase {
         let dogBreeds = dataManager.parseDogBreedResponse([response])
         XCTAssertEqual(dogBreeds.first?.name, "American Bully")
         XCTAssertEqual(dogBreeds.first?.imageURL, "https://www.example.com")
-        XCTAssertEqual(dogBreeds.first?.lifeSpan, "8 – 15 years")
+        XCTAssertEqual(dogBreeds.first?.lifespan, "8 – 15 years")
     }
 
     func testEmptyDogBreedsResponseParsing() {
@@ -28,4 +28,29 @@ final class HomeDataManagerTests: XCTestCase {
         XCTAssertTrue(dogBreeds.isEmpty)
     }
 
+    func testLifespanParsing() {
+        let dataManager = HomeDataManager()
+        XCTAssertEqual(dataManager.lifespan(from: "12 years"), 12)
+        XCTAssertEqual(dataManager.lifespan(from: "12 - 16 years"), 14)
+        XCTAssertEqual(dataManager.lifespan(from: "12- 16 years"), 14)
+        XCTAssertEqual(dataManager.lifespan(from: "13-17 years"), 15)
+        XCTAssertEqual(dataManager.lifespan(from: "12- 16 years"), 14)
+        XCTAssertNil(dataManager.lifespan(from: "years"))
+        XCTAssertNil(dataManager.lifespan(from: "12"))
+        XCTAssertNil(dataManager.lifespan(from: "12 - 14"))
+        XCTAssertEqual(dataManager.lifespan(from: "12 - 14 years 22 - 30 years"), 13)
+        XCTAssertEqual(dataManager.lifespan(from: "13– 17 years 22 - 24 years"), 15)
+        XCTAssertEqual(dataManager.lifespan(from: "13 17 years 22 - 24 years"), 15)
+    }
+
+    func testSorting() {
+        let dataManager = HomeDataManager()
+        let dogBreeds = [
+            DogBreed(name: "Breed 1", imageURL: "https://www.example.com", lifespan: "12 - 14 years", averageLifespan: 13),
+            DogBreed(name: "Breed 2", imageURL: "https://www.example.com", lifespan: "7 - 8 years", averageLifespan: 7.5),
+            DogBreed(name: "Breed 3", imageURL: "https://www.example.com", lifespan: "14 - 18 years", averageLifespan: 16)
+        ]
+        XCTAssertEqual(dataManager.sort(dogBreeds).first?.name, "Breed 2")
+        XCTAssertEqual(dataManager.sort(dogBreeds, isAsending: false).first?.name, "Breed 3")
+    }
 }

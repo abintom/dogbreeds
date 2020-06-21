@@ -18,8 +18,18 @@ final class HomeViewModel {
     // MARK: - Properties
 
     let title = HomeLocalizedString.title
+    let sortTitle = HomeLocalizedString.sortLifespanTitle
+    let sortSegments = [HomeLocalizedString.sortAscending, HomeLocalizedString.sortDescending]
 
     var stateChangeObserver: ((State) -> Void)?
+    var selectedSegment = 0
+    var isSortSegmentHidden: Bool {
+        guard case let .success(dogBreeds) = state,
+            dogBreeds.count > 1 else {
+            return true
+        }
+        return false
+    }
 
     private let apiClient: HomeAPIClient
     private(set) var state: State = .loading {
@@ -64,5 +74,17 @@ final class HomeViewModel {
     func cellModel(for indexPath: IndexPath) -> HomeCellViewModel? {
         guard case let .success(dogBreeds) = state else { return nil }
         return HomeCellViewModel(dogBreed: dogBreeds[indexPath.row])
+    }
+
+    func didSelectSegment(_ index: Int) {
+        selectedSegment = index
+
+        guard case let .success(dogBreeds) = state else {
+            return
+        }
+
+        let isAscending = selectedSegment == 0
+        let sortedItems = HomeDataManager().sort(dogBreeds, isAsending: isAscending)
+        state = .success(items: sortedItems)
     }
 }

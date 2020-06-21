@@ -280,9 +280,9 @@
 		A8E3991E249D95D8001F8914 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				A8E3991F249D95EC001F8914 /* DogBreedResponse.swift */,
-				A8E39921249DBA80001F8914 /* DogBreedGroupResponse.swift */,
 				A8E39925249DC199001F8914 /* DogBreed.swift */,
+				A8E39921249DBA80001F8914 /* DogBreedGroupResponse.swift */,
+				A8E3991F249D95EC001F8914 /* DogBreedResponse.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";

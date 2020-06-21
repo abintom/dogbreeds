@@ -11,5 +11,6 @@ import Foundation
 struct DogBreed {
     let name: String
     let imageURL: String
-    let lifeSpan: String
+    let lifespan: String
+    let averageLifespan: Double
 }

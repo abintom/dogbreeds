@@ -14,7 +14,8 @@ final class HomeCellViewModelTests: XCTestCase {
     func testValues() {
         let dogBreed = DogBreed(name: "American Bully",
                                 imageURL: "https://www.example.com",
-                                lifeSpan: "8 – 15 years")
+                                lifespan: "8 – 15 years",
+                                averageLifespan: 11.5)
         let cellModel = HomeCellViewModel(dogBreed: dogBreed)
         XCTAssertEqual(cellModel.name, "American Bully")
         XCTAssertEqual(cellModel.imageURL?.absoluteString, "https://www.example.com")

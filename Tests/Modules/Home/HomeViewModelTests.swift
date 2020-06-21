@@ -25,9 +25,9 @@ final class HomeViewModelTests: XCTestCase {
             return
         }
         XCTAssertEqual(models.count, 32)
-        XCTAssertEqual(models.first?.imageURL, "https://cdn2.thedogapi.com/images/SkFt1gc47_1280.jpg")
-        XCTAssertEqual(models.first?.name, "American Bully")
-        XCTAssertEqual(models.first?.lifeSpan, "8 – 15 years")
+        XCTAssertEqual(models.first?.imageURL, "https://cdn2.thedogapi.com/images/E_HPfvAnX.jpg")
+        XCTAssertEqual(models.first?.name, "Saint Bernard")
+        XCTAssertEqual(models.first?.lifespan, "7 - 10 years")
     }
 
     func testEmptyDogBreedData() {
@@ -70,7 +70,7 @@ final class HomeViewModelTests: XCTestCase {
         let apiClient = MockAPIClient(mockPath: Stub.fetchDogBreeds.path)
         let viewModel = HomeViewModel(HomeAPIClient(apiClient: apiClient))
         viewModel.loadData()
-        XCTAssertEqual(viewModel.cellModel(for: IndexPath(row: 0, section: 0))?.imageURL?.absoluteString, "https://cdn2.thedogapi.com/images/SkFt1gc47_1280.jpg")
+        XCTAssertEqual(viewModel.cellModel(for: IndexPath(row: 0, section: 0))?.imageURL?.absoluteString, "https://cdn2.thedogapi.com/images/E_HPfvAnX.jpg")
     }
 
     func testCellViewModelForFailureState() {
@@ -85,5 +85,31 @@ final class HomeViewModelTests: XCTestCase {
         let viewModel = HomeViewModel(HomeAPIClient(apiClient: apiClient))
         viewModel.loadData()
         XCTAssertEqual(viewModel.numberOfRows(), 32)
+    }
+
+    func testSegmentHiddenStatus() {
+        let apiClient = MockAPIClient(mockPath: Stub.fetchDogBreeds.path)
+        let viewModel = HomeViewModel(HomeAPIClient(apiClient: apiClient))
+        XCTAssertTrue(viewModel.isSortSegmentHidden)
+        viewModel.loadData()
+        XCTAssertFalse(viewModel.isSortSegmentHidden)
+    }
+
+    func testSegmentSelection() {
+        let apiClient = MockAPIClient(mockPath: Stub.fetchDogBreeds.path)
+        let viewModel = HomeViewModel(HomeAPIClient(apiClient: apiClient))
+        viewModel.loadData()
+        viewModel.didSelectSegment(0)
+        if case let .success(models) = viewModel.state {
+            XCTAssertEqual(models.first?.name, "Saint Bernard")
+        } else {
+            XCTFail("Dog breed response not parsed properly.")
+        }
+        viewModel.didSelectSegment(1)
+        if case let .success(models) = viewModel.state {
+            XCTAssertEqual(models.first?.name, "Shiba Inu")
+        } else {
+            XCTFail("Dog breed response not parsed properly.")
+        }
     }
 }

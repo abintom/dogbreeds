@@ -33,4 +33,9 @@ An iOS application to display various breeds of dogs from the [DogAPI](https://a
 - Use [SwiftGen](https://github.com/SwiftGen/SwiftGen) to avoid boilerplate code for resouce management like localization and to make it type-safe.
 
 
+### Assumptions
 
+As there isn't any backend specs, the below assumptions are considered when developing the app.
+
+- Dog breed type fetched from the backend would be always unique (even the name is same). There is no filtering done in the backend to remove duplicates.
+- Life span is always of the regex pattern `(\d+)[\s-–\s\d]*year`

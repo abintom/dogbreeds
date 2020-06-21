@@ -14,6 +14,9 @@ enum HomeLocalizedString {
     static let fetchDataError = HomeLocalizedString.string("fetch-data-error")
     static let loading = HomeLocalizedString.string("loading")
     static let lifespanPrefix = HomeLocalizedString.string("lifespan-prefix")
+    static let sortLifespanTitle = HomeLocalizedString.string("sort-lifespan-title")
+    static let sortAscending = HomeLocalizedString.string("sort-ascending")
+    static let sortDescending = HomeLocalizedString.string("sort-descending")
 }
 
 private extension HomeLocalizedString {

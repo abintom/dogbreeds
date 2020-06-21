@@ -25,7 +25,7 @@ final class HomeCellViewModel {
 
     var lifespan: String {
         [HomeLocalizedString.lifespanPrefix,
-         dogBreed.lifeSpan]
+         dogBreed.lifespan]
             .joined(separator: " ")
     }
 

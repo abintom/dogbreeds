@@ -13,6 +13,9 @@ final class HomeViewController: UIViewController {
     // MARK: - Outlets
 
     @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var sortSegmentContainer: UIView!
+    @IBOutlet private var sortTitleLabel: UILabel!
+    @IBOutlet private var sortSegmentControl: UISegmentedControl!
 
     // MARK: - Properties
 
@@ -28,16 +31,32 @@ final class HomeViewController: UIViewController {
         viewModel.loadData()
     }
 
+    // MARK: - Actions
+
+    @IBAction func sortValueDidChange(_ sender: UISegmentedControl) {
+        viewModel.didSelectSegment(sender.selectedSegmentIndex)
+    }
+
     // MARK: - Private methods
 
     private func setupViews() {
         navigationItem.title = viewModel.title
+        sortTitleLabel.text = viewModel.sortTitle
+        viewModel.sortSegments.enumerated().forEach { index, title in
+            self.sortSegmentControl.setTitle(title, forSegmentAt: index)
+        }
     }
 
     private func setupObservers() {
         viewModel.stateChangeObserver = { [weak self] state in
-            self?.tableView.reloadData()
+            self?.updateViews()
         }
+    }
+
+    private func updateViews() {
+        tableView.reloadData()
+        sortSegmentControl.selectedSegmentIndex = viewModel.selectedSegment
+        sortSegmentContainer.isHidden = viewModel.isSortSegmentHidden
     }
 }
 
